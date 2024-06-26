@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect, useState } from 'react';
+import { apiendpoint } from './utils/utils';
 import BookForm from './components/BookForm';
 import BookList from './components/BookList';
 
@@ -39,7 +40,7 @@ const App: React.FC = () => {
 
   const fetchBooks = async () => {
     try {
-      const response = await fetch('http://localhost:8081/books');
+      const response = await fetch(`${apiendpoint}/books`); 
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -57,7 +58,7 @@ const App: React.FC = () => {
   const handleAddBook = async (book: Book) => {
     try {
       if (editingIndex !== null) {
-        const response = await fetch(`http://localhost:8081/books/${book.id}`, {
+        const response = await fetch(`${apiendpoint}/books/${book.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(book),
@@ -69,7 +70,7 @@ const App: React.FC = () => {
         dispatch({ type: 'UPDATE_BOOK', payload: { index: editingIndex, book: updatedBook } });
         setEditingIndex(null);
       } else {
-        const response = await fetch('http://localhost:8081/books', {
+        const response = await fetch(`${apiendpoint}/books`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(book),
@@ -93,7 +94,7 @@ const App: React.FC = () => {
   const handleDeleteBook = async (index: number) => {
     try {
       const bookId = books[index].id;
-      const response = await fetch(`http://localhost:8081/books/${bookId}`, { method: 'DELETE' });
+      const response = await fetch(`${apiendpoint}/books/${bookId}`, { method: 'DELETE' });
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
