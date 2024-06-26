@@ -1,0 +1,21 @@
+help me create a bokkstore repository application using react ts. using tailwind css to style.
+here is a description of the application: 
+Project: Book Repository Application with Full CRUD Functionality
+Objective: Develop a Book Repository Application using React that allows users to perform all CRUD operations (create, read, update, delete) on books stored in a local storage array. This application should utilize custom React hooks alongside standard hooks to manage state efficiently and optimize performance, with an emphasis on a clean, user-friendly interface.
+Requirements:
+Form Input:
+Create a form with fields for the book's title, author, and publication year.
+Use the useRef hook to manage form inputs for precise control and performance.
+State Management:
+Utilize the useState hook to maintain the state of the book list.
+Implement the useReducer hook to handle actions such as adding, updating, and deleting books from the list, ensuring state transitions are predictable and manageable.
+Custom Hook for Local Storage:
+Develop a custom hook called useLocalStorage to handle the retrieval, storage, and updating of books. This hook should encapsulate all interactions with local storage, abstracting it away from the component logic.
+Use this hook in conjunction with useEffect to load the initial state from local storage and to update it whenever the book list changes.
+Pagination and Callbacks:
+Display only 5 books at a time in a table format.
+Implement pagination to navigate through the list with "Next" and "Previous" buttons.
+Use the useCallback hook to wrap the pagination handling function to prevent unnecessary re-renders.
+More Features:
+Add a search functionality to filter books by title. Use the useEffect hook to listen for changes in the search field and dynamically filter the displayed books.
+Enable editing and deleting of book details directly from the table, using the useReducer hook to facilitate state updates for a seamless user experience.
